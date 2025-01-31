@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "declaration": true,             // Generate type files
+    "emitDeclarationOnly": true,     // Don't generate JavaScript (SWC handles that)
+    "outDir": "./dist/types",                   // Output in the same folder as source
+    "rootDir": "src",                // Set source root to ensure proper paths
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "compileOnSave": false,
+  "exclude": ["node_modules", "dist","build"],
+  "include": ["src", "src/index.ts"]
+}
