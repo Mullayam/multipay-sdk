@@ -114,20 +114,7 @@ export namespace PaymentProvider {
             }
         }
         public Callback() { }
-    }
-    export class AttachInstance {
-
-        constructor(private adaptor: any) {
-            this.adaptor = adaptor;
-        }
-        public InitiateTransaction() {
-            return this.adaptor.InitializeTransaction();
-        }
-
-        public Callback() {
-            return this.adaptor.Callback();
-        }
-    }
+    }  
     export class AutoConfig {
         private adaptor!: AbstractGateways;
         constructor(private readonly mode: "offline" | "online", private readonly apiKey: string, private readonly apiSecret: string) {

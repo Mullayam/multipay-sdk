@@ -2,25 +2,25 @@ This code is supporing , billdesk ,paytm,razorpay and phonepay
 Method 1
 
 ```ts
-// RECOMMENDED
+// CommonJS
+import { PaymentProvider } from "@enjoys/multipay-sdk";
 
+//ES6
+const { PaymentProvider } = require("PaymentProvider");
 ```
 
-Method 2
-
 ```ts
-const methods = new PaymentProvider.AttachInstance(
-  new Paytm({
-    PAYTM_MERCHANT_ID: "your_mid",
-    PAYTM_MERCHANT_KEY: "your_mkey",
-    PAYTM_ENVIRONMENT: "TEST",
-    CALLBACK_URL: "http://localhost:8080/callback",
-    PAYTM_MERCHANT_WEBSITE: "DEFAULT",
-  })
+// RECOMMENDED
+const methods = new PaymentProvider.AutoConfig(
+   "offline", // mode offline user api key is salted with some secret having payload, decrypt on server  and use it, online mode will use directly call to panel server and create configuration and init transaction
+   "your_api_key",// get your api key from panel
+   "your_api_secret",// get your api secret from panel
 );
 ```
 
-Method 3
+### With User Control
+
+Method 2
 
 ```ts
 const paymentInstance = new PaymentProvider.Factory({
